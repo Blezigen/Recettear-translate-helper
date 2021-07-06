@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="WpfApp1.uix.FontViewControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:WpfApp1.uix"
+             mc:Ignorable="d" d:DesignHeight="48" d:DesignWidth="48">
+    <UserControl.Resources>
+        <local:FontItemToViewPortConverter x:Key="FontItemToViewPortConverter" />
+        <local:FontDataToBoxWidthConverter x:Key="FontDataToBoxWidthConverter" />
+    </UserControl.Resources>
+    <Grid Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:FontViewControl}}, Path=Value.FontData, Converter={StaticResource FontDataToBoxWidthConverter}}" Height="48">
+        <Grid.Background>
+            <ImageBrush x:Name="FontImage"
+                        ImageSource="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:FontViewControl}}, Path=Value.ImageData}"
+                        Stretch="None" TileMode="Tile" AlignmentY="Top" AlignmentX="Left"
+                        Viewport="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:FontViewControl}}, Path=Value.FontData, Converter={StaticResource FontItemToViewPortConverter}}"
+                        ViewportUnits="Absolute" >
+            </ImageBrush>
+        </Grid.Background>
+    </Grid>
+</UserControl>

@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="WpfApp1.uix.FontItemControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:WpfApp1.uix"
+             d:DesignWidth="70"
+             d:DesignHeight="70"
+             mc:Ignorable="d">
+    <Grid Background="White"
+          DataContext="{Binding  RelativeSource={RelativeSource AncestorType={x:Type local:FontItemControl}}, Path=Value}"
+          Width="48" Height="48">
+        <Grid x:Name="OutlineBorder" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Border x:Name="FontCharBox"
+                    BorderThickness="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:FontItemControl}}, Path=BorderThickness}"
+                    BorderBrush="Black" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Grid Width="48" Height="48" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Grid.Background>
+                            <ImageBrush x:Name="FontImage"
+                                        ImageSource="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:FontItemControl}}, Path=Value.ImageData, Mode=TwoWay}"
+                                        Stretch="None" TileMode="Tile" AlignmentY="Top" AlignmentX="Left"
+                                        Viewport="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:FontItemControl}}, Path=Viewport, Mode=TwoWay}"
+                                        ViewportUnits="Absolute" />
+                        </Grid.Background>
+                    </Grid>
+                </Grid>
+            </Border>
+            <Border HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="FontBox"
+                    Width="{Binding FontData.BoxWidth}" Height="48" BorderBrush="Blue"
+                    BorderThickness="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:FontItemControl}}, Path=BorderThickness}"
+                    Margin="0,0,0,0" />
+        </Grid>
+    </Grid>
+</UserControl>
