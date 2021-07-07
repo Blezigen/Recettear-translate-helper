@@ -20,6 +20,8 @@
                 <MenuItem Header="Open" Click="MenuItem_Open" />
                 <MenuItem Header="Save" Click="MenuItem_Save" />
                 <Separator />
+                <MenuItem Header="Save only lines" Click="MenuItem_SaveOnlyLines" />
+                <Separator />
                 <MenuItem Header="Exit" />
             </MenuItem>
             <MenuItem Header="Run" Height="24" Click="Menu_Run"/>
